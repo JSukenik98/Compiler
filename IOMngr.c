@@ -71,6 +71,7 @@ char getNextSourceChar()
 			lineRead = 1;
 			lineNum = lineNum + 1;
 			linePrint = 1;
+			columnNum = 0;
 			if (out != stdout)
 			{
 				fprintf(out, "%d. %s", lineNum, line);
@@ -94,6 +95,7 @@ char getNextSourceChar()
 				lineRead = 1;
 				lineNum = lineNum + 1;
 				linePrint = 1;
+				columnNum = 0;
 				if (out != stdout)
 				{
 					fprintf(out, "%d. %s", lineNum, line);
