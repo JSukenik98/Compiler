@@ -68,6 +68,7 @@ int hash(char* key, int tableSize)
 
 int enterName(SymTab* table, char* name)
 {
+	fprintf(stderr, "%s\n", name);
 	if (findName(table, name))
 	{
 		return 0;
