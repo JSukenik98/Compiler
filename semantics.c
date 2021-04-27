@@ -76,6 +76,7 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 			enterName(unionTable, getCurrentName(table2));
 		}
 	}
+	fprintf(stderr, "Leaving DoUnion\n");
 	return unionTable;
 }
 
