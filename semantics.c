@@ -134,16 +134,13 @@ SymTab* newSet(char* set)
 	{
 		char* step1 = malloc(sizeof(char) * (strlen(set) - 1));
 		strcpy(step1, &set[1]);
-		fprintf(stderr, "%s\n", step1);
 		char* step2 = malloc(sizeof(char) * (strlen(step1) - 1));
 		strncpy(step2, step1, strlen(step1) - 1);
-		fprintf(stderr,"%s\n", step2);
 
 
 		char* token = strtok(step2, ",");
 		while (token != NULL)
 		{
-			fprintf(stderr, "%s\n", token);
 			enterName(newTable, token);
 			token = strtok(NULL, ",");
 		}

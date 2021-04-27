@@ -71,6 +71,7 @@ int enterName(SymTab* table, char* name)
 	fprintf(stderr, "%s\n", name);
 	if (findName(table, name))
 	{
+		fprintf(stderr, "Already In\n");
 		return 0;
 	}
 	else
