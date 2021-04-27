@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "SymTab.h"
 #include "semantics.h"
 
 extern struct SymTab* table;
