@@ -22,7 +22,7 @@ letter(letter|digit)*     {return Ident;}
 \(                              {return '(';}
 \)                              {return ')';}
 \;                              {return ';';}
-[ ]                             {}
+\s                             {}
 \t                              {}
 \r                              {}
 \n                              {}
