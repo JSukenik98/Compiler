@@ -73,7 +73,7 @@ char getNextSourceChar()
 			linePrint = 1;
 			if (out != stdout)
 			{
-				fprintf(out, "%d. %s", lineNum, line);
+				fprintf(out, "%s", line);
 			}
 			char c = line[columnNum];
 			columnNum = columnNum + 1;
