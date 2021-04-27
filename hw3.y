@@ -16,7 +16,7 @@
 
 %union 
 {
-    SymTab* symtab;
+    void* symtab;
     char* string;
 }
 
