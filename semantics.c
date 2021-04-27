@@ -56,6 +56,7 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 {
 	fprintf(stderr, "In DoUnion\n");
 	SymTab* unionTable = createSymTab(40);
+	fprintf(stderr, "Union Table Created\n");
 	if (0 != startIterator(table1))
 	{
 		fprintf(stderr, "Iterator worked table1\n");
