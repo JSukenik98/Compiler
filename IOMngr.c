@@ -73,7 +73,7 @@ char getNextSourceChar()
 			linePrint = 1;
 			if (out != stdout)
 			{
-				fprintf(out, "%s", line);
+				fprintf(out, "%d. %s", lineNum, line);
 			}
 			char c = line[columnNum];
 			columnNum = columnNum + 1;
@@ -123,7 +123,7 @@ void writeIndicator(int column)
 		fprintf(out, "%s", line);
 		linePrint == 1;
 	}
-	fprintf(out, "%*c^\n", column-1,' ');
+	fprintf(out, "%*c^\n", column+2,' ');
 }
 
 
