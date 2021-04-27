@@ -214,6 +214,10 @@ int nextEntry(SymTab* table)
 				}
 				pos = pos + 1;
 				table->current = table->contents[pos];
+				if (table->current != NULL)
+				{
+					return 1;
+				}
 			}
 			else if (table->current->next == NULL)
 			{
@@ -223,6 +227,10 @@ int nextEntry(SymTab* table)
 				}
 				pos = pos + 1;
 				table->current = table->contents[pos];
+				if (table->current != NULL)
+				{
+					return 1;
+				}
 			}
 			else
 			{
