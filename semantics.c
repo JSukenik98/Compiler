@@ -7,7 +7,7 @@ extern struct SymTab* table;
 
 void printSymTab()
 {
-	fprintf(stderr, "In Print SymTab");
+	fprintf(stderr, "In Print SymTab\n");
 	if (0 != startIterator(table))
 	{
 		do
@@ -47,14 +47,14 @@ void printSymTab()
 
 void storeVar(char* name, SymTab* store_table)
 {
-	fprintf(stderr, "In StoreVar");
+	fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
 	setCurrentAttr(table, (void*)store_table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
 {
-	fprintf(stderr, "In DoUnion");
+	fprintf(stderr, "In DoUnion\n");
 	SymTab* unionTable = createSymTab(40);
 	if (0 != startIterator(table1))
 	{
@@ -77,7 +77,7 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 
 SymTab* doIntersect(SymTab* table1, SymTab* table2)
 {
-	fprintf(stderr, "In DoIntersect");
+	fprintf(stderr, "In DoIntersect\n");
 
 	SymTab* intersectTable = createSymTab(20);
 	if (0 != startIterator(table1))
@@ -110,7 +110,7 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 
 SymTab* getVal(char* name)
 {
-	fprintf(stderr, "In getVal");
+	fprintf(stderr, "In getVal\n");
 
 	if (enterName(table, name))
 	{
@@ -123,7 +123,7 @@ SymTab* getVal(char* name)
 
 SymTab* newSet(char* set)
 {
-	fprintf(stderr, "In newSet: %s", set);
+	fprintf(stderr, "In newSet: %s\n", set);
 
 	SymTab* newTable = createSymTab(20);
 	if (strcmp(set, "{}") == 0)
@@ -134,10 +134,10 @@ SymTab* newSet(char* set)
 	{
 		char* step1 = malloc(sizeof(char) * (strlen(set) - 1));
 		strcpy(step1, &set[1]);
-		fprintf(stderr, step1);
+		fprintf(stderr, "%s\n", step1);
 		char* step2 = malloc(sizeof(char) * (strlen(step1) - 1));
 		strncpy(step2, step1, strlen(step1) - 1);
-		fprintf(stderr, step2);
+		fprintf(stderr,"%s\n", step2);
 
 
 		char* token = strtok(step2, ",");
