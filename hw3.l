@@ -27,8 +27,8 @@ letter(letter|digit)*     {return Ident;}
 \r                              {}
 \n                              {}
 .                               {
-                                    WriteIndicator(getCurrentColumnNum());
-                                    WriteMessage("Illegal Character in lex");
+                                    writeIndicator(getCurrentColumnNum());
+                                    writeMessage("Illegal Character in lex");
                                 }
 
 %%

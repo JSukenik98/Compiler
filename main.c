@@ -6,7 +6,7 @@ extern int yyparse();
 
 SymTab* table;
 int main(int argc, char* argv[]) {
-	table = CreateSymTab(17);
+	table = createSymTab(17);
 	if (!openFiles(argv[1], "listing")) {
 		printf("open failed\n");
 		exit(0);

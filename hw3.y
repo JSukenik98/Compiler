@@ -47,7 +47,7 @@
 
 int yyerror(char *s) 
 {
-    WriteIndicator(getCurrentColumnNum());
-    WriteMessage("Illegal Character in YACC");
+    writeIndicator(getCurrentColumnNum());
+    writeMessage("Illegal Character in YACC");
     return 1;
 }

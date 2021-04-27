@@ -107,8 +107,8 @@ SymTab* getVal(char* name)
 {
 	if (enterName(table, name))
 	{
-		WriteIndicator(getCurrentColumnNum());
-		WriteMessage("Initialize variable to empty set");
+		writeIndicator(getCurrentColumnNum());
+		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
 	return (SymTab*) getCurrentAttr(table);
