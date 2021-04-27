@@ -123,7 +123,7 @@ SymTab* getVal(char* name)
 
 SymTab* newSet(char* set)
 {
-	fprintf(stderr, "In newSet");
+	fprintf(stderr, "In newSet: %s", set);
 
 	SymTab* newTable = createSymTab(20);
 	if (strcmp(set, "{}") == 0)
