@@ -49,7 +49,7 @@ void storeVar(char* name, SymTab* store_table)
 {
 	fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
-	setCurrentAttr(table, (void*)store_table);
+	setCurrentAttr(table, store_table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
@@ -124,7 +124,7 @@ SymTab* getVal(char* name)
 		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
-	SymTab* values = (SymTab*)getCurrentAttr(table);
+	SymTab* values = getCurrentAttr(table);
 	return values;
 }
 
