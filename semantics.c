@@ -58,17 +58,21 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 	SymTab* unionTable = createSymTab(40);
 	if (0 != startIterator(table1))
 	{
+		fprintf(stderr, "Iterator worked table1\n");
 		enterName(unionTable, getCurrentName(table1));
 		while (nextEntry(table1))
 		{
+			fprintf(stderr, "In while table1\n");
 			enterName(unionTable, getCurrentName(table1));
 		}
 	}
 	if (0 != startIterator(table2))
 	{
+		fprintf(stderr, "Iterator worked table2\n");
 		enterName(unionTable, getCurrentName(table2));
 		while (nextEntry(table2))
 		{
+			fprintf(stderr, "In while table2\n");
 			enterName(unionTable, getCurrentName(table2));
 		}
 	}
