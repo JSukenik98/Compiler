@@ -9,7 +9,7 @@
 
 %}
 
-letter [A-Za-Z]
+letter [a-zA-Z]
 digit [0-9]
 
 %%
