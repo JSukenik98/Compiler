@@ -14,15 +14,15 @@ digit [0-9]
 
 %%
 
-letter(letter|digit)*     {return Ident;}
-[\{](letter[\,])*(letter)?[\}]    {return Set;}
+{letter}({letter}|{digit})*     {return Ident;}
+\{({letter}\,)*{letter?\}    {return Set;}
 \+                              {return '+';}
 \*                              {return '*';}
 \=                              {return '=';}
 \(                              {return '(';}
 \)                              {return ')';}
 \;                              {return ';';}
-\s                             {}
+[ ]                              {}
 \t                              {}
 \r                              {}
 \n                              {}
