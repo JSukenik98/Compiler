@@ -20,7 +20,7 @@ void printSymTab()
 			}
 			else
 			{
-				SymTab* current = (SymTab*)getCurrentAttr(table);
+				SymTab* current = (SymTab*) getCurrentAttr(table);
 				if (0 != startIterator(current))
 				{
 					printf(getCurrentName(current));
@@ -117,23 +117,14 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 SymTab* getVal(char* name)
 {
 	fprintf(stderr, "In getVal\n");
-	SymTab* values = createSymTab(20);
-	
+
 	if (enterName(table, name))
 	{
 		writeIndicator(getCurrentColumnNum());
 		writeMessage("Initialize variable to empty set");
-		setCurrentAttr(table, (void*) values);
+		setCurrentAttr(table, (void*) createSymTab(20));
 	}
-	SymTab* stored = (SymTab*) getCurrentAttr(table);
-	if (0 != startIterator(stored))
-	{
-		enterName(values, getCurrentName(stored));
-		while (nextEntry(stored))
-		{
-			enterName(values, getCurrentName(stored));
-		}
-	}
+	SymTab* values = (SymTab*) getCurrentAttr(table);
 	return values;
 }
 
