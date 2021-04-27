@@ -145,7 +145,7 @@ SymTab* newSet(char* set)
 		{
 			fprintf(stderr, "%s\n", token);
 			enterName(newTable, token);
-			strtok(NULL, ",");
+			token = strtok(NULL, ",");
 		}
 		return newTable;
 	}
