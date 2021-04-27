@@ -124,7 +124,8 @@ SymTab* getVal(char* name)
 		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
-	return getCurrentAttr(table);
+	SymTab* values = (SymTab*)getCurrentAttr(table);
+	return values;
 }
 
 SymTab* newSet(char* set)
