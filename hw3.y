@@ -2,6 +2,7 @@
 
     #include "semantics.h"
     #include "IOMngr.h"
+	#include "SymTab.h"
     #include <string.h>
 
     extern int yylex();
