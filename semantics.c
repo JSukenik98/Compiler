@@ -117,14 +117,23 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 SymTab* getVal(char* name)
 {
 	fprintf(stderr, "In getVal\n");
-
+	SymTab* values = createSymTab(20);
+	
 	if (enterName(table, name))
 	{
 		writeIndicator(getCurrentColumnNum());
 		writeMessage("Initialize variable to empty set");
-		setCurrentAttr(table, (void*) createSymTab(20));
+		setCurrentAttr(table, (void*) values);
 	}
-	SymTab* values = getCurrentAttr(table);
+	SymTab* stored = (SymTab*) getCurrentAttr(table);
+	if (0 != startIterator(stored))
+	{
+		enterName(values, getCurrentName(stored));
+		while (nextEntry(stored))
+		{
+			enterName(values, getCurrentName(stored));
+		}
+	}
 	return values;
 }
 
