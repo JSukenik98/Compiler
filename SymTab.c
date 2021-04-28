@@ -210,11 +210,12 @@ int nextEntry(SymTab* table)
 {
 	if (hasCurrent(table))
 	{
+		fprintf(stderr, "%d < %d\n", pos, table->size);
 		while (pos < table->size)
 		{
 			if (table->current != NULL)
 			{
-				fprintf(stderr, "%s\n", getCurrentName(table));
+				//fprintf(stderr, "%s\n", getCurrentName(table));
 			}
 			if (table->current == NULL)
 			{
