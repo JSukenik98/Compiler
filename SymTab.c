@@ -211,7 +211,7 @@ int nextEntry(SymTab* table)
 {
 	if (hasCurrent(table))
 	{
-		//fprintf(stderr, "%d < %d\n", pos, table->size);
+		fprintf(stderr, "Next Entry Current Pos: %d < %d", pos, table->size);
 		while (pos < table->size)
 		{
 			if (table->current != NULL)
