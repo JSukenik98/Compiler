@@ -59,14 +59,13 @@ void closeFiles()
 
 char getNextSourceChar()
 {
-	
 	if (line == NULL)
 	{
 		line = malloc(sizeof(char) * MAXLINE);
 	}
 	if (lineRead == 0)
 	{
-		if (read = getline(&line, &len, in) != -1)
+		if ((read = getline(&line, &len, in)) != -1)
 		{
 			lineRead = 1;
 			lineNum = lineNum + 1;
@@ -90,7 +89,7 @@ char getNextSourceChar()
 		char c = line[columnNum];
 		if (c == '\n')
 		{
-			if (read = getline(&line, &len, in) != -1)
+			if ((read = getline(&line, &len, in)) != -1)
 			{
 				lineRead = 1;
 				lineNum = lineNum + 1;
