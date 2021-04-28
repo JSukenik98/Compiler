@@ -1,0 +1,9 @@
+Set1 = {a,b,c,d};
+Set2 = {d,e,f,g};
+Set3 = {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z};
+Set4 = {s,t,u,v};
+Set5 = {w,x,y,z};
+Set6 = Set1 + Set2;
+Set7 = Set1 * Set2;
+Set8 = (Set1+Set2)*Set3*(Set4+Set5);
+Set9 =  Set1+Set2*Set3*Set4+Set5;
