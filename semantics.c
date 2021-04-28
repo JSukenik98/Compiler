@@ -47,63 +47,64 @@ void printSymTab()
 
 void storeVar(char* name, SymTab* storeTable)
 {
-	fprintf(stderr, "In StoreVar\n");
+	//fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
 
-	if (startIterator(storeTable))
+	/*if (startIterator(storeTable))
 	{
 		fprintf(stderr, "%s\n", getCurrentName(storeTable));
 		while (nextEntry(storeTable))
 		{
 			fprintf(stderr, "%s\n", getCurrentName(storeTable));
 		}
-	}
+	}*/
 
 	setCurrentAttr(table, (void*) storeTable);
+	printSymTab(table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
 {
-	fprintf(stderr, "In DoUnion\n");
+	//fprintf(stderr, "In DoUnion\n");
 	SymTab* unionTable = createSymTab(40);
-	fprintf(stderr, "Union Table Created\n");
+	//fprintf(stderr, "Union Table Created\n");
 	if (0 != startIterator(table1))
 	{
-		fprintf(stderr, "Iterator worked table1\n");
+		//fprintf(stderr, "Iterator worked table1\n");
 		enterName(unionTable, getCurrentName(table1));
 		while (nextEntry(table1))
 		{
-			fprintf(stderr, "In while table1\n");
+			//fprintf(stderr, "In while table1\n");
 			enterName(unionTable, getCurrentName(table1));
 		}
 	}
 	if (0 != startIterator(table2))
 	{
-		fprintf(stderr, "Iterator worked table2\n");
+		//fprintf(stderr, "Iterator worked table2\n");
 		enterName(unionTable, getCurrentName(table2));
 		while (nextEntry(table2))
 		{
-			fprintf(stderr, "In while table2\n");
+			//fprintf(stderr, "In while table2\n");
 			enterName(unionTable, getCurrentName(table2));
 		}
 	}
 
-	if (startIterator(unionTable))
+	/*if (startIterator(unionTable))
 	{
 		fprintf(stderr, "%s\n", getCurrentName(unionTable));
 		while (nextEntry(unionTable))
 		{
 			fprintf(stderr, "%s\n", getCurrentName(unionTable));
 		}
-	}
+	}*/
 
-	fprintf(stderr, "Leaving DoUnion\n");
+	//fprintf(stderr, "Leaving DoUnion\n");
 	return unionTable;
 }
 
 SymTab* doIntersect(SymTab* table1, SymTab* table2)
 {
-	fprintf(stderr, "In DoIntersect\n");
+	//fprintf(stderr, "In DoIntersect\n");
 
 	SymTab* intersectTable = createSymTab(20);
 	if (0 != startIterator(table1))
@@ -136,7 +137,7 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 
 SymTab* getVal(char* name)
 {
-	fprintf(stderr, "In getVal\n");
+	//fprintf(stderr, "In getVal\n");
 
 	if (enterName(table, name))
 	{
@@ -152,21 +153,21 @@ SymTab* getVal(char* name)
 
 	SymTab* valTable = (SymTab*) getCurrentAttr(table);
 
-	if (startIterator(valTable))
+	/*if (startIterator(valTable))
 	{
 		fprintf(stderr, "%s\n", getCurrentName(valTable));
 		while (nextEntry(valTable))
 		{
 			fprintf(stderr, "%s\n", getCurrentName(valTable));
 		}
-	}
+	}*/
 
 	return valTable;
 }
 
 SymTab* newSet(char* set)
 {
-	fprintf(stderr, "In newSet: %s\n", set);
+	//fprintf(stderr, "In newSet: %s\n", set);
 
 	SymTab* newTable = createSymTab(20);
 	if (strcmp(set, "{}") == 0)
@@ -188,14 +189,14 @@ SymTab* newSet(char* set)
 			token = strtok(NULL, ",");
 		}
 
-		if (startIterator(newTable))
+		/*if (startIterator(newTable))
 		{
 			fprintf(stderr, "%s\n", getCurrentName(newTable));
 			while (nextEntry(newTable))
 			{
 				fprintf(stderr, "%s\n", getCurrentName(newTable));
 			}
-		}
+		}*/
 
 		return newTable;
 	}
