@@ -20,6 +20,7 @@ typedef struct SymEntry {
 */
 typedef struct SymTab{
  int size;
+ int pos;
  SymEntry **contents;
  SymEntry *current;
 } SymTab;
