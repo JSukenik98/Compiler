@@ -144,6 +144,12 @@ SymTab* getVal(char* name)
 		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
+
+	if (getCurrentAttr(table) == NULL)
+	{
+		fprintf(stderr, "Current Attr is NULL!\n");
+	}
+
 	SymTab* valTable = (SymTab*) getCurrentAttr(table);
 
 	if (startIterator(valTable))
