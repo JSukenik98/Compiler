@@ -150,6 +150,16 @@ SymTab* newSet(char* set)
 			enterName(newTable, token);
 			token = strtok(NULL, ",");
 		}
+
+		if (startIterator(newTable))
+		{
+			fprintf(stderr, "%s\n", getCurrentName(newTable));
+			while (nextEntry(newTable))
+			{
+				fprintf(stderr, "%s\n", getCurrentName(newTable));
+			}
+		}
+
 		return newTable;
 	}
 }
