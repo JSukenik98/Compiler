@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int pos = 0;
-
 SymTab * createSymTab(int size)
 {
 	if (size >= 0)
@@ -13,6 +11,7 @@ SymTab * createSymTab(int size)
 		table->contents = malloc(size * sizeof(SymEntry));
 		table->current = malloc(sizeof(SymEntry));
 		table->size = size;
+		table->pos = 0;
 		return table;
 	}
 	else
@@ -77,9 +76,9 @@ int enterName(SymTab* table, char* name)
 	else
 	{
 		//fprintf(stderr, "%s ", name);
-		pos = hash(name, table->size);
-		//fprintf(stderr, "%d\n", pos);
-		table->current = table->contents[pos];
+		table->pos = hash(name, table->size);
+		//fprintf(stderr, "%d\n", table->pos);
+		table->current = table->contents[table->pos];
 		while (hasCurrent(table))
 		{
 			if (table->current->next == NULL)
@@ -104,9 +103,9 @@ int enterName(SymTab* table, char* name)
 		enter->name = strdup(name);
 		enter->next = NULL;
 		table->current = enter;
-		if (table->contents[pos] == NULL)
+		if (table->contents[table->pos] == NULL)
 		{
-			table->contents[pos] = enter;
+			table->contents[table->pos] = enter;
 		}
 		return 1;
 	}
@@ -185,14 +184,14 @@ int startIterator(SymTab* table)
 {
 	//fprintf(stderr, "In Start Iterator!\n");
 	int found = 0;
-	for (pos = 0; pos < table->size; pos++)
+	for (table->pos = 0; table->pos < table->size; table->pos++)
 	{
 		//fprintf(stderr, "Attempting setting current!\n");
-		table->current = table->contents[pos];
+		table->current = table->contents[table->pos];
 		//fprintf(stderr, "Current Set!\n");
 		if (hasCurrent(table))
 		{
-			fprintf(stderr, "Current: %s Pos: %d\n", getCurrentName(table), pos);
+			fprintf(stderr, "Current: %s table->pos: %d\n", getCurrentName(table), table->pos);
 			found = 1;
 			break;
 		}
@@ -211,8 +210,8 @@ int nextEntry(SymTab* table)
 {
 	if (hasCurrent(table))
 	{
-		fprintf(stderr, "Next Entry Current Pos: %d < %d\n", pos, table->size);
-		while (pos < table->size)
+		fprintf(stderr, "Next Entry Current table->pos: %d < %d\n", table->pos, table->size);
+		while (table->pos < table->size)
 		{
 			if (table->current != NULL)
 			{
@@ -220,12 +219,12 @@ int nextEntry(SymTab* table)
 			}
 			if (table->current == NULL)
 			{
-				if (pos == table->size - 1)
+				if (table->pos == table->size - 1)
 				{
 					return 0;
 				}
-				pos = pos + 1;
-				table->current = table->contents[pos];
+				table->pos = table->pos + 1;
+				table->current = table->contents[table->pos];
 				if (table->current != NULL)
 				{
 					return 1;
@@ -233,12 +232,12 @@ int nextEntry(SymTab* table)
 			}
 			else if (table->current->next == NULL)
 			{
-				if (pos == table->size - 1)
+				if (table->pos == table->size - 1)
 				{
 					return 0;
 				}
-				pos = pos + 1;
-				table->current = table->contents[pos];
+				table->pos = table->pos + 1;
+				table->current = table->contents[table->pos];
 				if (table->current != NULL)
 				{
 					return 1;
@@ -250,7 +249,7 @@ int nextEntry(SymTab* table)
 				return 1;
 			}
 		}
-		//pos is >= table->size
+		//table->pos is >= table->size
 		return 0;
 	}
 	else
