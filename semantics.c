@@ -24,11 +24,11 @@ void printSymTab()
 				if (0 != startIterator(current))
 				{
 					printf(getCurrentName(current));
-					printf(",");
+					
 					while (nextEntry(current))
 					{
-						printf(getCurrentName(current));
 						printf(",");
+						printf(getCurrentName(current));
 					}
 					printf("}\n");
 				}

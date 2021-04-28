@@ -76,7 +76,9 @@ int enterName(SymTab* table, char* name)
 	}
 	else
 	{
+		fprintf(stderr, "%s ", name);
 		pos = hash(name, table->size);
+		fprintf(stderr, "%d\n", pos);
 		table->current = table->contents[pos];
 		while (hasCurrent(table))
 		{
