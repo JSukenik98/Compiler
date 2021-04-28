@@ -181,10 +181,13 @@ char* getCurrentName(SymTab* table)
 
 int startIterator(SymTab* table)
 {
+	fprintf(stderr, "In Start Iterator!\n");
 	int found = 0;
 	for (pos = 0; pos < table->size; pos++)
 	{
+		fprintf(stderr, "Attempting setting current!\n");
 		table->current = table->contents[pos];
+		fprinf(stderr, "Current Set!\n");
 		if (hasCurrent(table))
 		{
 			found = 1;
