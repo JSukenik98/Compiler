@@ -151,7 +151,7 @@ void setCurrentAttr(SymTab* table, void* attr)
 {
 	if (hasCurrent(table) == 1)
 	{
-		table->current = attr;
+		table->current->attribute = attr;
 	}
 }
 
