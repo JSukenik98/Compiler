@@ -191,7 +191,7 @@ int startIterator(SymTab* table)
 		//fprintf(stderr, "Current Set!\n");
 		if (hasCurrent(table))
 		{
-			fprintf(stderr, "Current: %s table->pos: %d\n", getCurrentName(table), table->pos);
+			//fprintf(stderr, "Current: %s table->pos: %d\n", getCurrentName(table), table->pos);
 			found = 1;
 			break;
 		}
@@ -210,7 +210,7 @@ int nextEntry(SymTab* table)
 {
 	if (hasCurrent(table))
 	{
-		fprintf(stderr, "Next Entry Current table->pos: %d < %d\n", table->pos, table->size);
+		//fprintf(stderr, "Next Entry Current table->pos: %d < %d\n", table->pos, table->size);
 		while (table->pos < table->size)
 		{
 			if (table->current != NULL)
