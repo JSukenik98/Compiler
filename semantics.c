@@ -49,7 +49,7 @@ void storeVar(char* name, SymTab* store_table)
 {
 	fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
-	setCurrentAttr(table, store_table);
+	setCurrentAttr(table, (void*) store_table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
