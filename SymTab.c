@@ -185,9 +185,9 @@ int startIterator(SymTab* table)
 	int found = 0;
 	for (pos = 0; pos < table->size; pos++)
 	{
-		fprintf(stderr, "Attempting setting current!\n");
+		//fprintf(stderr, "Attempting setting current!\n");
 		table->current = table->contents[pos];
-		fprintf(stderr, "Current Set!\n");
+		//fprintf(stderr, "Current Set!\n");
 		if (hasCurrent(table))
 		{
 			found = 1;
