@@ -4,4 +4,3 @@ z = {x};
 w = x + z;
 a = x + y + z + w;
 b = ( x + y + z + w) * y;
-f = w * z;
