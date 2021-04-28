@@ -3,6 +3,6 @@ y = {};
 z = {x};
 w = x + z;
 a = x + y + z + w;
-b = ( x + y + z + w) * y;
+b = ( x + y + z + w) * x;
 f = z * x;
 g = {q,e,t,d,a,g,k};
