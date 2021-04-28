@@ -181,7 +181,7 @@ char* getCurrentName(SymTab* table)
 
 int startIterator(SymTab* table)
 {
-	fprintf(stderr, "In Start Iterator!\n");
+	//fprintf(stderr, "In Start Iterator!\n");
 	int found = 0;
 	for (pos = 0; pos < table->size; pos++)
 	{

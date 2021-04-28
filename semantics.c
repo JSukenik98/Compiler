@@ -45,11 +45,21 @@ void printSymTab()
 	}
 }
 
-void storeVar(char* name, SymTab* store_table)
+void storeVar(char* name, SymTab* storeTable)
 {
 	fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
-	setCurrentAttr(table, (void*) store_table);
+
+	if (startIterator(storeTable))
+	{
+		fprintf(stderr, "%s\n", getCurrentName(storeTable));
+		while (nextEntry(storeTable))
+		{
+			fprintf(stderr, "%s\n", getCurrentName(storeTable));
+		}
+	}
+
+	setCurrentAttr(table, (void*) storeTable);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
@@ -77,6 +87,16 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 			enterName(unionTable, getCurrentName(table2));
 		}
 	}
+
+	if (startIterator(unionTable))
+	{
+		fprintf(stderr, "%s\n", getCurrentName(unionTable));
+		while (nextEntry(unionTable))
+		{
+			fprintf(stderr, "%s\n", getCurrentName(unionTable));
+		}
+	}
+
 	fprintf(stderr, "Leaving DoUnion\n");
 	return unionTable;
 }
@@ -124,7 +144,18 @@ SymTab* getVal(char* name)
 		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
-	return (SymTab*) getCurrentAttr(table);
+	SymTab* valTable = (SymTab*) getCurrentAttr(table);
+
+	if (startIterator(valTable))
+	{
+		fprintf(stderr, "%s\n", getCurrentName(valTable));
+		while (nextEntry(valTable))
+		{
+			fprintf(stderr, "%s\n", getCurrentName(valTable));
+		}
+	}
+
+	return valTable;
 }
 
 SymTab* newSet(char* set)
