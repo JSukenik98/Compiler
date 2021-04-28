@@ -38,6 +38,7 @@ void printSymTab()
 				}
 			}
 		} while (nextEntry(table));
+		printf("\n");
 	}
 	else
 	{
