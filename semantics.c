@@ -44,6 +44,7 @@ void printSymTab()
 	{
 		printf("SymTab is empty!\n");
 	}
+	destroySymTab(table);
 }
 
 void storeVar(char* name, SymTab* storeTable)
@@ -127,8 +128,8 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 			}
 		}
 	}
-	destroySymTab(table1);
-	destroySymTab(table2);
+	//destroySymTab(table1);
+	//destroySymTab(table2);
 	return intersectTable;
 }
 
