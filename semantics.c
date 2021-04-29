@@ -159,7 +159,11 @@ SymTab* getVal(char* name)
 	SymTab* current = getCurrentAttr(table);
 	SymTab* valTable = createSymTab(20);
 
-	if (startIterator(current))
+	if (current == NULL)
+	{
+		return valTable;
+	}
+	else if (startIterator(current))
 	{
 		enterName(valTable, getCurrentName(current));
 		while (nextEntry(current))
