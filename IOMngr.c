@@ -87,7 +87,7 @@ char getNextSourceChar()
 	else
 	{
 		char c = line[columnNum];
-		if (columnNum == len)
+		if (columnNum == len - 1)
 		{
 			if ((read = getline(&line, &len, in)) != -1)
 			{
