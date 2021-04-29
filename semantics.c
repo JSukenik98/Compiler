@@ -100,8 +100,8 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 	}*/
 
 	//fprintf(stderr, "Leaving DoUnion\n");
-	destroySymTab(table1);
-	//destroySymTab(table2);
+	//destroySymTab(table1);
+	destroySymTab(table2);
 	return unionTable;
 }
 
