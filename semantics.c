@@ -159,15 +159,14 @@ SymTab* getVal(char* name)
 	SymTab* current = (SymTab*) getCurrentAttr(table);
 	SymTab* valTable = createSymTab(20);
 
-	fprintf(stderr, "Alive\n");
 	if (current == NULL)
 	{
 		return valTable;
 	}
 
-	fprintf(stderr, "Still Alive\n");
 	if (startIterator(current))
 	{
+		fprinf(stderr, "Iterator Worked!");
 		enterName(valTable, getCurrentName(current));
 		while (nextEntry(current))
 		{
