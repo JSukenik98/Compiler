@@ -38,7 +38,7 @@ void printSymTab()
 				}
 			}
 		} while (nextEntry(table));
-		printf("\n");
+		//printf("\n");
 	}
 	else
 	{
@@ -67,7 +67,7 @@ void storeVar(char* name, SymTab* storeTable)
 SymTab* doUnion(SymTab* table1, SymTab* table2)
 {
 	//fprintf(stderr, "In DoUnion\n");
-	SymTab* unionTable = createSymTab(40);
+	SymTab* unionTable = createSymTab(20);
 	//fprintf(stderr, "Union Table Created\n");
 	if (0 != startIterator(table1))
 	{
@@ -100,6 +100,9 @@ SymTab* doUnion(SymTab* table1, SymTab* table2)
 	}*/
 
 	//fprintf(stderr, "Leaving DoUnion\n");
+	destroySymTab(table1);
+	destroySymTab(table2);
+
 	return unionTable;
 }
 
@@ -126,13 +129,19 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 		}
 		else
 		{
+			destroySymTab(table1);
+			destroySymTab(table2);
 			return intersectTable;
 		}
 	}
 	else
 	{
+		destroySymTab(table1);
+		destroySymTab(table2);
 		return intersectTable;
 	}
+	destroySymTab(table1);
+	destroySymTab(table2);
 	return intersectTable;
 }
 
@@ -147,12 +156,17 @@ SymTab* getVal(char* name)
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
 
-	if (getCurrentAttr(table) == NULL)
-	{
-		fprintf(stderr, "Current Attr is NULL!\n");
-	}
+	SymTab* current = getCurrentAttr(table);
+	SymTab* valTable = createSymTab(20);
 
-	SymTab* valTable = (SymTab*) getCurrentAttr(table);
+	if (startIterator(current))
+	{
+		enterName(valTable, getCurrentName(current));
+		while (nextEntry(current))
+		{
+			enterName(valTable, getCurrentName(current));
+		}
+	}
 
 	/*if (startIterator(valTable))
 	{
