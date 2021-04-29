@@ -32,7 +32,7 @@ void destroySymTab(SymTab *table)
 			{
 				free(current->attribute);
 				free(current->name);
-				free(current->next);
+				free(current);
 			}
 			else
 			{
