@@ -146,8 +146,22 @@ SymTab* getVal(char* name)
 		writeMessage("Initialize variable to empty set");
 		setCurrentAttr(table, (void*) createSymTab(20));
 	}
+	SymTab* current = (SymTab*) getCurrentAttr(table);
+	SymTab* valTable = createSymTab(20);
 
-	SymTab* valTable = (SymTab*) getCurrentAttr(table);
+	if (startIterator(current))
+	{
+		enterName(valTable, getCurrentName(current));
+		while (nextEntry(current))
+		{
+			enterName(valTable, getCurrentName(current));
+		}
+		return valTable;
+	}
+	else
+	{
+		return valTable;
+	}
 
 	/*if (startIterator(valTable))
 	{
@@ -157,8 +171,6 @@ SymTab* getVal(char* name)
 			fprintf(stderr, "%s\n", getCurrentName(valTable));
 		}
 	}*/
-
-	return valTable;
 }
 
 SymTab* newSet(char* set)
