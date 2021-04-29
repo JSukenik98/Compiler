@@ -61,7 +61,7 @@ void storeVar(char* name, SymTab* storeTable)
 	}*/
 
 	setCurrentAttr(table, (void*) storeTable);
-	printSymTab(table);
+	//printSymTab(table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
