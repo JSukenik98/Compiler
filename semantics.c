@@ -166,7 +166,7 @@ SymTab* getVal(char* name)
 
 	if (startIterator(current))
 	{
-		fprintf(stderr, "Iterator Worked!\n");
+		fprintf(stderr, "Iterator Worked!");
 		enterName(valTable, getCurrentName(current));
 
 		while (nextEntry(current))
