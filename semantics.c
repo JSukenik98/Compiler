@@ -48,7 +48,7 @@ void printSymTab()
 
 void storeVar(char* name, SymTab* storeTable)
 {
-	//fprintf(stderr, "In StoreVar\n");
+	fprintf(stderr, "In StoreVar\n");
 	enterName(table, name);
 
 	/*if (startIterator(storeTable))
