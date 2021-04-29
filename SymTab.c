@@ -10,6 +10,7 @@ SymTab * createSymTab(int size)
 		SymTab* table = malloc(sizeof(SymTab));
 		table->contents = malloc(size * sizeof(SymEntry));
 		table->current = malloc(sizeof(SymEntry));
+		table->current = NULL;
 		table->size = size;
 		table->pos = 0;
 		return table;
