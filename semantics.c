@@ -126,21 +126,9 @@ SymTab* doIntersect(SymTab* table1, SymTab* table2)
 				}
 			}
 		}
-		else
-		{
-			//destroySymTab(table1);
-			//destroySymTab(table2);
-			return intersectTable;
-		}
 	}
-	else
-	{
-		//destroySymTab(table1);
-		//destroySymTab(table2);
-		return intersectTable;
-	}
-	//destroySymTab(table1);
-	//destroySymTab(table2);
+	destroySymTab(table1);
+	destroySymTab(table2);
 	return intersectTable;
 }
 
