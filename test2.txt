@@ -4,5 +4,5 @@ z = {x};
 w = x + z;
 a = x + y + z + w;
 b = ( x + y + z + w) * x;
-f = z * x;
+f = z * w;
 g = {q,e,t,d,a,g,k};
