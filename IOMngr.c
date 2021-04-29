@@ -86,8 +86,7 @@ char getNextSourceChar()
 	}
 	else
 	{
-		char c = line[columnNum];
-		if (columnNum == len - 1)
+		if (columnNum == (int) len)
 		{
 			if ((read = getline(&line, &len, in)) != -1)
 			{
@@ -110,6 +109,7 @@ char getNextSourceChar()
 		}
 		else
 		{
+			char c = line[columnNum];
 			columnNum = columnNum + 1;
 			return c;
 		}
