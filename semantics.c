@@ -199,11 +199,11 @@ SymTab* newSet(char* set)
 
 
 		char* token = strtok(step2, ",");
+		fprintf(stderr, "Here!\n");
 		while (token != NULL)
 		{
 			enterName(newTable, token);
 			token = strtok(NULL, ",");
-			fprintf(stderr, "Here!\n");
 		}
 
 		/*if (startIterator(newTable))
