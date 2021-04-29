@@ -61,7 +61,7 @@ void storeVar(char* name, SymTab* storeTable)
 	}*/
 
 	setCurrentAttr(table, (void*) storeTable);
-	//printSymTab(table);
+	printSymTab(table);
 }
 
 SymTab* doUnion(SymTab* table1, SymTab* table2)
@@ -166,8 +166,9 @@ SymTab* getVal(char* name)
 
 	if (startIterator(current))
 	{
-		fprintf(stderr, "Iterator Worked!");
+		fprintf(stderr, "Iterator Worked!\n");
 		enterName(valTable, getCurrentName(current));
+
 		while (nextEntry(current))
 		{
 			enterName(valTable, getCurrentName(current));
